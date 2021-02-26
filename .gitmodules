@@ -1,0 +1,3 @@
+[submodule "SecretDeviceAdapters"]
+	path = SecretDeviceAdapters
+	url = https://github.com/micro-manager/SecretDeviceAdapters.git
