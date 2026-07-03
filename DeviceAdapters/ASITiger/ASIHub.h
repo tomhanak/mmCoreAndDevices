@@ -48,8 +48,9 @@ public:
    // gets the response to a command but waits a certain time for the response to come instead of looking for a terminator
    // also doesn't necessarily wait for a complete response
    int QueryCommandUnterminatedResponse(const char *command, const long timeoutMs, unsigned long replyLength);
-   int QueryCommandUnterminatedResponse(const char *command, const long timeoutMs) 
-   {	   return  QueryCommandUnterminatedResponse(command, timeoutMs,1);   }
+   int QueryCommandUnterminatedResponse(const char *command, const long timeoutMs) {
+       return  QueryCommandUnterminatedResponse(command, timeoutMs,1);
+   }
    int QueryCommandUnterminatedResponse(const std::string &command, const long timeoutMs)
       { return QueryCommandUnterminatedResponse(command.c_str(), timeoutMs,1); }
    int QueryCommandUnterminatedResponse(const std::string &command, const long timeoutMs, unsigned long replyLength)
@@ -98,12 +99,12 @@ public:
    int ParseAnswerAfterUnderscore(unsigned int &val);  // finds next number after underscore and returns as long int
    int ParseAnswerAfterColon(double &val);  // finds next number after colon and returns as float
    int ParseAnswerAfterColon(long &val);  // finds next number after colon and returns as long int
-	int ParseAnswerAfterPosition(unsigned int pos, double &val);  // finds next number after character position specified and returns as float
-	int ParseAnswerAfterPosition(unsigned int pos, long &val);    // finds next number after character position specified and returns as long int
+    int ParseAnswerAfterPosition(unsigned int pos, double &val);  // finds next number after character position specified and returns as float
+    int ParseAnswerAfterPosition(unsigned int pos, long &val);    // finds next number after character position specified and returns as long int
    int ParseAnswerAfterPosition(unsigned int pos, unsigned int &val);    // finds next number after character position specified and returns as unsigned int
    int ParseAnswerAfterPosition2(double &val);  // finds next number after character position 2 and returns as float
-	int ParseAnswerAfterPosition2(long &val);    // finds next number after character position 2 and returns as long int
-	int ParseAnswerAfterPosition2(unsigned int &val);    // finds next number after character position 2 and returns as unsigned int
+    int ParseAnswerAfterPosition2(long &val);    // finds next number after character position 2 and returns as long int
+    int ParseAnswerAfterPosition2(unsigned int &val);    // finds next number after character position 2 and returns as unsigned int
    int ParseAnswerAfterPosition3(double &val);  // finds next number after character position 3 and returns as float
    int ParseAnswerAfterPosition3(long &val);    // finds next number after character position 3 and returns as long int
    int ParseAnswerAfterPosition3(unsigned int &val);    // finds next number after character position 3 and returns as unsigned int
@@ -148,11 +149,11 @@ protected:
     std::string port_ = "Undefined"; // serial port to use for communication
 
 private:
-	int ParseErrorReply() const;
-	static std::string EscapeControlCharacters(const std::string &v);
-	static std::string UnescapeControlCharacters(const std::string &v0);
-	static std::vector<char> ConvertStringVector2CharVector(const std::vector<std::string> &v);
-	static std::vector<int> ConvertStringVector2IntVector(const std::vector<std::string> &v);
+    int ParseErrorReply() const;
+    static std::string EscapeControlCharacters(const std::string &v);
+    static std::string UnescapeControlCharacters(const std::string &v0);
+    static std::vector<char> ConvertStringVector2CharVector(const std::vector<std::string> &v);
+    static std::vector<int> ConvertStringVector2IntVector(const std::vector<std::string> &v);
 
     MMThreadLock threadLock_; // used to lock thread during serial transaction
 
