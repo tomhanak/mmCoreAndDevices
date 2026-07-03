@@ -49,12 +49,14 @@ public:
    // also doesn't necessarily wait for a complete response
    int QueryCommandUnterminatedResponse(const char *command, const long timeoutMs, unsigned long replyLength);
    int QueryCommandUnterminatedResponse(const char *command, const long timeoutMs) {
-       return  QueryCommandUnterminatedResponse(command, timeoutMs,1);
+       return QueryCommandUnterminatedResponse(command, timeoutMs, 1);
    }
-   int QueryCommandUnterminatedResponse(const std::string &command, const long timeoutMs)
-      { return QueryCommandUnterminatedResponse(command.c_str(), timeoutMs,1); }
-   int QueryCommandUnterminatedResponse(const std::string &command, const long timeoutMs, unsigned long replyLength)
-   {   return QueryCommandUnterminatedResponse(command.c_str(), timeoutMs, replyLength);   }
+   int QueryCommandUnterminatedResponse(const std::string &command, const long timeoutMs) {
+       return QueryCommandUnterminatedResponse(command.c_str(), timeoutMs, 1);
+   }
+   int QueryCommandUnterminatedResponse(const std::string &command, const long timeoutMs, unsigned long replyLength) {
+       return QueryCommandUnterminatedResponse(command.c_str(), timeoutMs, replyLength);
+   }
 
    int QueryCommandLongReply(const char *command, const char *replyTerminator);  // all variants call this
    int QueryCommandLongReply(const char *command) { return QueryCommandLongReply(command, g_SerialTerminatorMultiLine); }
