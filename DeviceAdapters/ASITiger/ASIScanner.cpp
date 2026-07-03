@@ -1267,7 +1267,7 @@ int CScanner::OnOutputMode(MM::PropertyBase* pProp, MM::ActionType eAct)
       }
       else
       {
-	  command << "PM " << axisLetterX_ << "?";
+      command << "PM " << axisLetterX_ << "?";
       }
       response << axisLetterX_ << "=";
       RETURN_ON_MM_ERROR ( hub_->QueryCommandVerify(command.str(), response.str()));
@@ -1312,7 +1312,7 @@ int CScanner::OnOutputMode(MM::PropertyBase* pProp, MM::ActionType eAct)
       }
       else
       {
-	  command << "PM " << axisLetterX_ << "=" << tmp << " " << axisLetterY_ << "=" << tmp;
+      command << "PM " << axisLetterX_ << "=" << tmp << " " << axisLetterY_ << "=" << tmp;
       }
       RETURN_ON_MM_ERROR ( hub_->QueryCommandVerify(command.str(), ":A") );
    }
@@ -1754,7 +1754,7 @@ int CScanner::OnSAPatternX(MM::PropertyBase* pProp, MM::ActionType eAct)
          case 0: success = pProp->Set(g_SAPattern_0); break;
          case 1: success = pProp->Set(g_SAPattern_1); break;
          case 2: success = pProp->Set(g_SAPattern_2); break;
-		 case 3: success = pProp->Set(g_SAPattern_3); break;
+         case 3: success = pProp->Set(g_SAPattern_3); break;
          case 4: success = pProp->Set(g_SAPattern_4); break;
          default:success = 0;                      break;
       }
@@ -1929,7 +1929,7 @@ int CScanner::OnSAPatternY(MM::PropertyBase* pProp, MM::ActionType eAct)
          case 2: success = pProp->Set(g_SAPattern_2); break;
          case 3: success = pProp->Set(g_SAPattern_3); break;
          case 4: success = pProp->Set(g_SAPattern_4); break;
-		 default:success = 0;                      break;
+         default:success = 0;                      break;
       }
       if (!success)
          return DEVICE_INVALID_PROPERTY_VALUE;

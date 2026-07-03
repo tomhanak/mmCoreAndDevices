@@ -18,7 +18,7 @@
 //                INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES.
 //
 // AUTHOR:        Jon Daniels (jon@asiimaging.com) 09/2013
-//                Modified for Tunable lens by Vik (vik@asiimaging.com)	05/2017
+//                Modified for Tunable lens by Vik (vik@asiimaging.com) 05/2017
 //
 
 #include "ASILens.h"
@@ -310,16 +310,16 @@ int CLens::Initialize() {
    {
       ttl_trigger_supported_ = true;
 
-	  	  //TTL IN mode
-	  pAct = new CPropertyAction (this, &CLens::OnTTLin);
+      // TTL IN mode
+      pAct = new CPropertyAction (this, &CLens::OnTTLin);
       CreateProperty(g_TTLinName, "0", MM::Integer, false, pAct);
       SetPropertyLimits(g_TTLinName, 0,30);
-	  UpdateProperty(g_TTLinName);
-	  //TTL Out Mode
-	  pAct = new CPropertyAction (this, &CLens::OnTTLout);
+      UpdateProperty(g_TTLinName);
+      // TTL Out Mode
+      pAct = new CPropertyAction (this, &CLens::OnTTLout);
       CreateProperty(g_TTLoutName, "0", MM::Integer, false, pAct);
       SetPropertyLimits(g_TTLoutName,0,30);
-	  UpdateProperty(g_TTLoutName);
+      UpdateProperty(g_TTLoutName);
    }
 
       //VectorMove
@@ -1170,7 +1170,7 @@ int CLens::OnSAPattern(MM::PropertyBase* pProp, MM::ActionType eAct)
          case 0: success = pProp->Set(g_SAPattern_0); break;
          case 1: success = pProp->Set(g_SAPattern_1); break;
          case 2: success = pProp->Set(g_SAPattern_2); break;
-		 case 3: success = pProp->Set(g_SAPattern_3); break;
+         case 3: success = pProp->Set(g_SAPattern_3); break;
          case 4: success = pProp->Set(g_SAPattern_4); break;
          default:success = 0;                      break;
       }
@@ -1191,7 +1191,7 @@ int CLens::OnSAPattern(MM::PropertyBase* pProp, MM::ActionType eAct)
          tmp = 3;
       else if (tmpstr == g_SAPattern_4)
          tmp = 4;
-	  else
+      else
          return DEVICE_INVALID_PROPERTY_VALUE;
       // have to get current settings and then modify bits 0-2 from there
       command << "SAP " << axisLetter_ << "?";
