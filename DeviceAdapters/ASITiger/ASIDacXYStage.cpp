@@ -591,7 +591,7 @@ int CDACXYStage::OnSaveCardSettings(MM::PropertyBase* pProp, MM::ActionType eAct
 		}
 		else if (tmpstr == g_SaveSettingsY)
 		{
-			command << 'X';
+			command << 'Y';
 		}
 		else if (tmpstr == g_SaveSettingsZ)
 		{

@@ -643,7 +643,7 @@ int CPLogic::OnSaveCardSettings(MM::PropertyBase* pProp, MM::ActionType eAct)
       if (tmpstr == g_SaveSettingsX)
          command << 'X';
       else if (tmpstr == g_SaveSettingsY)
-         command << 'X';
+         command << 'Y';
       else if (tmpstr == g_SaveSettingsZ)
          command << 'Z';
       RETURN_ON_MM_ERROR (hub_->QueryCommandVerify(command.str(), ":A", (long)200));  // note 200ms delay added

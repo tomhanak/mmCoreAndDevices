@@ -783,7 +783,7 @@ int CXYStage::OnSaveCardSettings(MM::PropertyBase* pProp, MM::ActionType eAct)
       if (tmpstr == g_SaveSettingsX)
          command << 'X';
       else if (tmpstr == g_SaveSettingsY)
-         command << 'X';
+         command << 'Y';
       else if (tmpstr == g_SaveSettingsZ)
          command << 'Z';
       else if (tmpstr == g_SaveSettingsZJoystick)
