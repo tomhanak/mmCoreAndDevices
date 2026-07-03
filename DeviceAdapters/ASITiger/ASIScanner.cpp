@@ -331,33 +331,33 @@ int CScanner::Initialize() {
       dac4ch_ = true;
       if (hub_->IsDefinePresent(build, "SIGNAL_DAC"))
       {
-	signalDAC_ = true;
-	// add output mode property, for SIGNAL_DAC a restart is required and use PR instead of PM
-	// but the list of modules is exactly the same as with the generic DAC_4CH.      
-	pAct = new CPropertyAction (this, &CScanner::OnOutputMode);
-	CreateProperty(g_DACModePropertyName, "0", MM::String, false, pAct);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_0);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_1);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_2);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_4);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_5);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_6);
-	AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_7);
-	UpdateProperty(g_DACModePropertyName);
+    signalDAC_ = true;
+    // add output mode property, for SIGNAL_DAC a restart is required and use PR instead of PM
+    // but the list of modules is exactly the same as with the generic DAC_4CH.      
+    pAct = new CPropertyAction (this, &CScanner::OnOutputMode);
+    CreateProperty(g_DACModePropertyName, "0", MM::String, false, pAct);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_0);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_1);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_2);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_4);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_5);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_6);
+    AddAllowedValue(g_DACModePropertyName, g_DACOutputMode_7);
+    UpdateProperty(g_DACModePropertyName);
       }
       else
       {
-	// add output mode property
+    // add output mode property
         pAct = new CPropertyAction (this, &CScanner::OnOutputMode);
-	CreateProperty(g_ScannerOutputModePropertyName, "0", MM::String, false, pAct);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_0);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_1);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_2);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_4);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_5);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_6);
-	AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_7);
-	UpdateProperty(g_ScannerOutputModePropertyName);
+    CreateProperty(g_ScannerOutputModePropertyName, "0", MM::String, false, pAct);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_0);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_1);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_2);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_4);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_5);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_6);
+    AddAllowedValue(g_ScannerOutputModePropertyName, g_DACOutputMode_7);
+    UpdateProperty(g_ScannerOutputModePropertyName);
       }
    }
    else  // original MEMS scanner firmware
@@ -514,9 +514,9 @@ int CScanner::Initialize() {
       }
 
       if (FirmwareVersionAtLeast(3.14)) {
-	// in 3.50 added bit 7 of SPIM mode for smooth slice (e.g. constant galvo scan for scope)
+    // in 3.50 added bit 7 of SPIM mode for smooth slice (e.g. constant galvo scan for scope)
         pAct = new CPropertyAction (this, &CScanner::OnSPIMSmoothSliceEnable);
-	CreateProperty(g_SPIMSmoothSliceEnable, g_NoState, MM::String, false, pAct);
+    CreateProperty(g_SPIMSmoothSliceEnable, g_NoState, MM::String, false, pAct);
         AddAllowedValue(g_SPIMSmoothSliceEnable, g_YesState);
         AddAllowedValue(g_SPIMSmoothSliceEnable, g_NoState);
         UpdateProperty(g_SPIMSmoothSliceEnable);
