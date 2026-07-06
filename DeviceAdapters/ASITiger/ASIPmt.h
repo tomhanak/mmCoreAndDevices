@@ -48,13 +48,13 @@ public:
    int IsDASequenceable(bool& isSequenceable) const {isSequenceable = false; return DEVICE_OK;}
 
    // action interface
-   int OnSaveCardSettings     (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnRefreshProperties    (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnGain                 (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnAverage              (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnPMTSignal			  (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnPMTOverload    	  (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnOverloadReset        (MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnSaveCardSettings(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnRefreshProperties(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnGain(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnAverage(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnPMTSignal(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnPMTOverload(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnOverloadReset(MM::PropertyBase* pProp, MM::ActionType eAct);
 
 private:
     int UpdateGain();

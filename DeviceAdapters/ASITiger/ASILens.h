@@ -18,7 +18,7 @@
 //                INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES.
 //
 // AUTHOR:        Jon Daniels (jon@asiimaging.com) 09/2013
-//                Modified for Tunable lens by Vik (vik@asiimaging.com)	05/2017
+//                Modified for Tunable lens by Vik (vik@asiimaging.com) 05/2017
 //
 
 #pragma once
@@ -98,9 +98,9 @@ public:
    int OnRBRunning            (MM::PropertyBase* pProp, MM::ActionType eAct);
    int OnUseSequence          (MM::PropertyBase* pProp, MM::ActionType eAct);
    // others
-   int OnVector				  (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnTTLin				  (MM::PropertyBase* pProp, MM::ActionType eAct);
-   int OnTTLout			      (MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnVector(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnTTLin(MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnTTLout(MM::PropertyBase* pProp, MM::ActionType eAct);
 
 private:
     int OnSaveJoystickSettings();

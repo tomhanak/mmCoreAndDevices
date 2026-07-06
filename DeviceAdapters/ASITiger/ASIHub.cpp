@@ -89,7 +89,7 @@ int ASIHub::QueryCommandUnterminatedResponse(const char *command, const long tim
 
    while (ret == DEVICE_OK && total_read < replyLength && !timerOut.expired(GetCurrentMMTime())) {
       ret = ReadFromComPort(port_.c_str(), (unsigned char*)rcvBuf, MM::MaxStrLength, read);
-	  total_read += read;
+      total_read += read;
    }
    if (total_read > 0)
    {

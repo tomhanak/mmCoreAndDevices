@@ -107,7 +107,7 @@ public:
    int OnUseSequence          (MM::PropertyBase* pProp, MM::ActionType eAct);
    int OnFastSequence         (MM::PropertyBase* pProp, MM::ActionType eAct);
    //Others
-   int OnVector				  (MM::PropertyBase* pProp, MM::ActionType eAct);
+   int OnVector(MM::PropertyBase* pProp, MM::ActionType eAct);
 
 private:
     int OnSaveJoystickSettings();

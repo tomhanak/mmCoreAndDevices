@@ -1371,7 +1371,7 @@ int CPiezo::OnSAPattern(MM::PropertyBase* pProp, MM::ActionType eAct)
          case 0: success = pProp->Set(g_SAPattern_0); break;
          case 1: success = pProp->Set(g_SAPattern_1); break;
          case 2: success = pProp->Set(g_SAPattern_2); break;
-		 case 3: success = pProp->Set(g_SAPattern_3); break;
+         case 3: success = pProp->Set(g_SAPattern_3); break;
          case 4: success = pProp->Set(g_SAPattern_4); break;
          default:success = 0;                      break;
       }
@@ -1392,7 +1392,7 @@ int CPiezo::OnSAPattern(MM::PropertyBase* pProp, MM::ActionType eAct)
          tmp = 3;
       else if (tmpstr == g_SAPattern_4)
          tmp = 4;
-	  else
+      else
          return DEVICE_INVALID_PROPERTY_VALUE;
       // have to get current settings and then modify bits 0-2 from there
       command << "SAP " << axisLetter_ << "?";

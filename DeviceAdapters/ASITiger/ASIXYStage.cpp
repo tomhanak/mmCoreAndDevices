@@ -485,28 +485,25 @@ int CXYStage::GetPositionSteps(long& x, long& y)
 }
 
 //rewritten to get 2 position from one serial command query, require half the time
-//But may cause problem for cases where xy axis are on different cards , reply may not be in correct order
-//int CXYStage::GetPositionSteps(long& x, long& y)
-//{
-//	 ostringstream command;	 command.str("");
-//	 command << "W " << axisLetterX_<<" "<<axisLetterY_;
-//	 RETURN_ON_MM_ERROR ( hub_->QueryCommandVerify(command.str(),":A") );
-//	 vector<string> elems=hub_->SplitAnswerOnDelim(" ");
-//	 //check if reply is in correct format
-//	 //has exactly 3 strings after split, and first string is ":A"
-//	 //W X Y
-//	 //:A 123 123
-//	 if(elems.size()<3 || elems[0].find(":A")== string::npos)
-//	 {
-//		RETURN_ON_MM_ERROR(DEVICE_SERIAL_INVALID_RESPONSE);
-//	 }
-//	 double xtmp,ytmp;
-//	 xtmp=atoi(elems[1].c_str());
-//	 ytmp=atoi(elems[2].c_str());
-//	 x = (long)(xtmp/unitMultX_/stepSizeXUm_);
-//	 y = (long)(ytmp/unitMultY_/stepSizeYUm_);
-//
-//	  return DEVICE_OK;
+//But may cause problem for cases where xy axis are on different cards, reply may not be in correct order
+//int CXYStage::GetPositionSteps(long& x, long& y) {
+// ostringstream command;
+// command << "W " << axisLetterX_<<" "<<axisLetterY_;
+// RETURN_ON_MM_ERROR ( hub_->QueryCommandVerify(command.str(),":A") );
+// vector<string> elems=hub_->SplitAnswerOnDelim(" ");
+// //check if reply is in correct format
+// //has exactly 3 strings after split, and first string is ":A"
+// //W X Y
+// //:A 123 123
+// if (elems.size()<3 || elems[0].find(":A")== string::npos) {
+//     RETURN_ON_MM_ERROR(DEVICE_SERIAL_INVALID_RESPONSE);
+// }
+// double xtmp,ytmp;
+// xtmp=atoi(elems[1].c_str());
+// ytmp=atoi(elems[2].c_str());
+// x = (long)(xtmp/unitMultX_/stepSizeXUm_);
+// y = (long)(ytmp/unitMultY_/stepSizeYUm_);
+//  return DEVICE_OK;
 //}
 
 int CXYStage::SetPositionSteps(long x, long y)
@@ -783,7 +780,7 @@ int CXYStage::OnSaveCardSettings(MM::PropertyBase* pProp, MM::ActionType eAct)
       if (tmpstr == g_SaveSettingsX)
          command << 'X';
       else if (tmpstr == g_SaveSettingsY)
-         command << 'X';
+         command << 'Y';
       else if (tmpstr == g_SaveSettingsZ)
          command << 'Z';
       else if (tmpstr == g_SaveSettingsZJoystick)

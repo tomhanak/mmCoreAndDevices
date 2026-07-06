@@ -241,7 +241,7 @@ int CPMT::OnOverloadReset(MM::PropertyBase* pProp, MM::ActionType eAct)
          return DEVICE_OK;
       else if (tmpstr == g_PMTOverloadDone)
          return DEVICE_OK;
-	  else if (tmpstr == g_OnState)
+      else if (tmpstr == g_OnState)
          command << addressChar_ << "LK " << channelAxisChar_ ;
       RETURN_ON_MM_ERROR( hub_->QueryCommandVerify(command.str(), ":A", (long)200) );  // note 200ms delay added
       pProp->Set(g_PMTOverloadDone);
@@ -330,16 +330,15 @@ int CPMT::OnPMTOverload(MM::PropertyBase* pProp, MM::ActionType eAct)
       command << addressChar_ << "LK " << channelAxisChar_ << "?" ;
       RETURN_ON_MM_ERROR ( hub_->QueryCommandVerify(command.str(), ":A") );
       RETURN_ON_MM_ERROR ( hub_->ParseAnswerAfterPosition2(val) );
-      if(val)
-	  {
-	  if (!pProp->Set(g_NoState))
-         return DEVICE_INVALID_PROPERTY_VALUE;
-	  }
-	  else
-	  {
-	  	  if (!pProp->Set(g_YesState))
-         return DEVICE_INVALID_PROPERTY_VALUE;
-	  }
+      if(val) {
+          if (!pProp->Set(g_NoState)) {
+              return DEVICE_INVALID_PROPERTY_VALUE;
+          }
+      } else {
+          if (!pProp->Set(g_YesState)) {
+              return DEVICE_INVALID_PROPERTY_VALUE;
+          }
+      }
    }
    return DEVICE_OK;
 }
