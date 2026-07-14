@@ -837,7 +837,6 @@ private:
     bool            snappingSingleFrame_{ false }; // Single frame mode acquisition ongoing
     bool            singleFrameModeReady_{ false }; // Single frame mode acquisition prepared
     bool            sequenceModeReady_{ false }; // Continuous acquisition prepared
-    bool            callPrepareForAcq_{ true }; // Call PrepareForAcq after {sequence,singleFrame}ModeReady_ is set
     bool            isAcquiring_{ false };
 
     long            triggerTimeout_{ 10 }; // Max time to wait for an external trigger

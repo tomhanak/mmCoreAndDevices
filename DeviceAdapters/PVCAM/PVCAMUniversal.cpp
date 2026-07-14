@@ -4999,16 +4999,12 @@ int Universal::prepareSequenceAcquisition()
     {
         GetCoreCallback()->InitializeImageBuffer(1, 1,
                 GetImageWidth(), GetImageHeight(), GetImageBytesPerPixel());
-        callPrepareForAcq_ = true;
     }
 
-    if (callPrepareForAcq_)
-    {
-        int ret = GetCoreCallback()->PrepareForAcq(this);
-        if (ret != DEVICE_OK)
-            return ret;
-        callPrepareForAcq_ = false;
-    }
+    // Must be called unconditionally otherwise shutter may not work properly
+    int ret = GetCoreCallback()->PrepareForAcq(this);
+    if (ret != DEVICE_OK)
+        return ret;
 
     return DEVICE_OK;
 }
@@ -6538,7 +6534,6 @@ int Universal::applyAcqConfig(bool forceSetup)
 
         GetCoreCallback()->InitializeImageBuffer(1, 1,
                 GetImageWidth(), GetImageHeight(), GetImageBytesPerPixel());
-        callPrepareForAcq_ = true;
     }
 
     // Update the Device/Property browser UI
